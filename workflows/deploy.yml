@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master  # Deploy when changes are pushed to Master branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.UP_SKILL_CHALLENGE_KEY_PAIR_AMW }}
+
+    - name: Copy files to EC2
+      run: |
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ${{ secrets.UP_SKILL_CHALLENGE_USER }}@${{ secrets.UP_SKILL_CHALLENGE_EC2_HOST }}:/var/www/amara
+
+    - name: Set file permissions on EC2
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.UP_SKILL_CHALLENGE_USER }}@${{ secrets.UP_SKILL_CHALLENGE_EC2_HOST }} 'sudo chown -R ubuntu:ubuntu /var/www/amara && sudo chmod -R 755 /var/www/amara'
+
+    - name: Restart Web Server
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.UP_SKILL_CHALLENGE_USER }}@${{ secrets.UP_SKILL_CHALLENGE_EC2_HOST }} 'sudo nginx -t && sudo systemctl restart nginx'
+

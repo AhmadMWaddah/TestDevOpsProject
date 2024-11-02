@@ -1,0 +1,348 @@
+/* =--------------------------------------= Components Classes =------------------= */
+/* =--------= Action Button =----= */
+.action__button
+	width: 40px
+	height: 40px
+	background: $firstColorAlt
+	border: 0.15rem solid $borderColor
+	color: $textColor
+	font-size: $smallFontSize
+	/* =--------= max-width: 350px =----= */
+	@media screen and (max-width: 350px)
+		font-size: $tinyFontSize
+		width: 35px
+		height: 35px
+	line-height: 42px
+	text-align: center
+	border-radius: 50%
+	position: relative
+	transition: $transition
+	/* =--------= max-width: 350px =----= */
+	@media screen and (max-width: 350px)
+		width: 36px
+		height: 36px
+		line-height: 38px
+	&:hover
+		background: $firstColor
+		color: $bodyColor
+		border: 0.15rem solid $firstColor
+		&::before
+			opacity: 1
+			transform: translateX(-50%) translateY(-0.5rem)
+		&::after
+			opacity: 1
+			transform: translateX(-50%) translateY(-0.5rem)
+	&::before
+		content: ""
+		top: -2px
+		border: 0.5rem solid transparent
+		border-top-color: $firstColor
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		transition: $transition
+		opacity: 0
+	&::after
+		content: attr(aria-label)
+		bottom: 100%
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		background: $firstColor
+		color: $bodyColor
+		font-size: $tinyFontSize
+		white-space: nowrap
+		padding-inline: 0.625rem
+		border-radius: 0.25rem
+		line-height: 2.58
+		transition: $transition
+		opacity: 0
+
+/* =--------= Buttons =----= */
+.btn
+	font-family: $secondFont
+	font-size: $smallFontSize
+	font-weight: 700
+	display: inline-block
+	color: $bodyColor
+	border: 0.2rem solid $firstColor
+	background: $firstColor
+	padding-inline: 1.75rem
+	height: 49px
+	line-height: 45px
+	border-radius: 0.25rem
+	transition: $transition
+	/* =--------= max-width: 992px =----= */
+	@media screen and (max-width: 992px)
+		height: 45px
+		line-height: 45px
+	&:hover
+		background: transparent
+		color: $firstColor
+		transform: scale(1.01)
+		box-shadow: $boxShadow
+	&__medium
+		font-family: $bodyFont
+		height: 45px
+		line-height: 42px
+		/* =--------= max-width: 992px =----= */
+		@media screen and (max-width: 992px)
+			height: 42px
+			line-height: 34px
+	&__small
+		font-family: $bodyFont
+		height: 40px
+		line-height: 30px
+		/* =--------= max-width: 992px =----= */
+		@media screen and (max-width: 992px)
+			height: 38px
+			line-height: 30px
+	&__logout
+		display: block
+		text-align: center
+		width: 40%
+		margin: 1rem auto
+
+/* =--------= Custom Swiper Buttons =----= */
+.swiper__buttons
+	top: -1.875rem
+	background: $firstColorAlt
+	border: 0.1rem solid $borderColor
+	width: 30px
+	height: 30px
+	border-radius: 50%
+	color: $firstColor
+	font-size: $tinyFontSize
+	&:after
+		content: ""	
+
+/* =--------= Basic Swiper Buttons =----= */
+.swiper-button-next
+	@extend .swiper__buttons
+	right: 0
+	/* =--------= max-width: 1200px =----= */
+	@media screen and (max-width: 1200px)
+		top: -28px
+		width: 26px
+		height: 26px	
+	/* =--------= max-width: 350px =----= */
+	@media screen and (max-width: 350px)
+		display: none
+
+.swiper-button-prev
+	@extend .swiper__buttons
+	left: initial
+	right: 2.5rem
+	/* =--------= max-width: 1200px =----= */
+	@media screen and (max-width: 1200px)
+		top: -28px
+		width: 26px
+		height: 26px
+		right: 36px	
+	/* =--------= max-width: 350px =----= */
+	@media screen and (max-width: 350px)
+		display: none
+
+/* =--------= Products Wrapper =----= */
+.products__wrapper
+	grid-template-columns: repeat(4, 1fr)
+	/* =--------= max-width: 1400px =----= */
+	@media (max-width: 1400px)
+		grid-template-columns: repeat(3, 1fr)
+	/* =--------= max-width: 992px =----= */
+	@media screen and (max-width: 992px)
+		grid-template-columns: repeat(2, 1fr)
+	/* =--------= max-width: 768px =----= */
+	@media screen and (max-width: 768px)
+		grid-template-columns: 100%		
+	.product__item
+		border: 0.15rem solid $borderColor
+		border-radius: 1.5rem
+		transition: $transition
+		&:hover
+			box-shadow: 0 0 0.4rem hsla(0, 0%, 0%, 0.2)
+			.product__banner
+				.product__actions
+					opacity: 1
+				.product__images
+					.product__image
+						transform: scale(1.1)
+						&__default
+							opacity: 0
+						&__hover
+							opacity: 1
+		.product__banner
+			padding: 0.625rem 0.75rem 0.75rem
+			position: relative
+			.product__images
+				position: relative
+				display: block
+				overflow: hidden
+				border-radius: 1.25rem
+				.product__image
+					vertical-align: middle
+					transition: $transition
+					&__hover
+						position: absolute
+						top: 0
+						left: 0
+						opacity: 0
+			.product__actions
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				display: flex
+				column-gap: 0.5rem
+				opacity: 0
+				transition: $transition
+				a
+					@extend .action__button
+			.product__badge
+				position: absolute
+				left: 1.25rem
+				top: 1.25rem
+				background: $firstColor
+				color: $bodyColor
+				padding: 0.25rem 0.625rem
+				border-radius: 2.5rem
+				font-size: $tinyFontSize
+				&__light__pink
+					background: hsl(341, 100%, 73%)
+				&__light__green
+					background: hsl(155, 20%, 67%)
+				&__light__orange
+					background: hsl(24, 100%, 73%)
+				&__light__blue
+					background: hsl(202, 53%, 76%)
+		.product__content
+			padding: 0 1.25rem 1.125rem
+			position: relative
+			.product__category
+				color: $textColorLight
+				font-size: $smallerFontSize
+			.product__name
+				font-size: $normalFontSize
+				margin-block: 0.75rem 0.5rem
+			.product__stars
+				font-size: $smallerFontSize
+				color: hsl(42, 100%, 50%)
+				margin-bottom: 0.75rem
+			.product__price
+				.new__price
+					color: $firstColor
+					font-size: $largeFontSize
+					font-weight: 600
+				.old__price
+					color: $textColorLight
+					font-size: $smallFontSize
+					text-decoration: line-through
+			.bag__button
+				@extend .action__button
+				position: absolute
+				bottom: 3rem
+				right: 1rem
+				/* =--------= max-width: 350px =----= */
+				@media screen and (max-width: 350px)
+					bottom: 1.4rem
+					right: 1.25rem
+
+/* =--------= Table =----= */
+.table__wrapper
+	overflow-x: auto
+	.table
+		table-layout: fixed
+		margin-bottom: 2rem
+		tr
+			border-top: 1px solid $borderColorAlt
+			&:last-child
+				border-bottom: 1px solid $borderColorAlt
+			th
+				padding: 0.5rem
+				text-align: center
+				&:nth-child(1)
+					width: 216px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 140px
+				&:nth-child(2)
+					width: 400px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 330px
+				&:nth-child(3)
+					width: 108px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 80px
+				&:nth-child(4)
+					width: 220px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 160px
+				&:nth-child(5)
+					width: 200px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 160px
+				&:nth-child(6)
+					width: 152px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 100px
+			td
+				padding: 0.5rem
+				text-align: center
+				&:nth-child(1)
+					width: 216px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 140px
+				&:nth-child(2)
+					width: 400px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 330px
+				&:nth-child(3)
+					width: 108px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 80px
+				&:nth-child(4)
+					width: 220px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 160px
+				&:nth-child(5)
+					width: 200px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 160px
+				&:nth-child(6)
+					width: 152px
+					/* =--------= max-width: 992px =----= */
+					@media screen and (max-width: 992px)
+						width: 100px
+				.table__image
+					width: 80px
+				.table__title
+					font-size: $smallFontSize
+					color: $firstColor
+				.table__description
+					font-size: $smallFontSize
+					max-width: 250px
+					margin-inline: auto
+				.table__price
+					font-size: $smallFontSize
+				.table__quantity
+					text-align: center
+				.table__sub__total
+					font-size: $smallFontSize
+				.table__availability
+					font-size: $smallFontSize
+					color: $firstColor
+					&__red
+						color: $errorNegateColor
+				.table__trash
+					font-size: $smallFontSize
+					color: $textColorLight

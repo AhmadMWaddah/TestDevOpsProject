@@ -1,0 +1,56 @@
+/* =--------------------------------------= Account Partition Styles =------------------= */
+.accounts__contents
+	.tab__content
+		border: 1px solid $borderColorAlt
+		&:not(&__active)
+			display: none
+		.address
+			padding: 1rem
+			font-style: normal
+			font-size: $smallFontSize
+			line-height: 1.5rem
+		.city
+			padding: 1rem
+		.edit
+			margin-bottom: 1rem
+			margin-left: 1rem
+		.tab__header
+			background: $wrapperColor
+			border-bottom: 1px solid $borderColorAlt
+			padding: 1rem
+			font-size: $smallFontSize
+			/* =--------= max-width: 768px =----= */
+			@media screen and (max-width: 768px)
+				padding: 0.75rem
+		.tab__body
+			padding: 2rem
+			/* =--------= max-width: 768px =----= */
+			@media screen and (max-width: 768px)
+				padding: 0.75rem
+			.table__orders
+				tr
+					th
+						color: $titleColor
+						text-align: left
+						border: 1px solid $borderColorAlt
+						padding: 0.5rem
+						font-size: $smallFontSize
+						/* =--------= max-width: 576px =----= */
+						@media screen and (max-width: 576px)
+							display: none
+					td
+						border: 1px solid $borderColorAlt
+						padding: 0.5rem
+						font-size: $smallFontSize
+						/* =--------= max-width: 576px =----= */
+						@media screen and (max-width: 576px)
+							display: block
+						.view__order
+							color: $firstColor
+					.order__status
+						&__completed
+							color: $firstColor
+						&__canceled
+							color: $errorNegateColor
+						&__processing
+							color: $processingColor

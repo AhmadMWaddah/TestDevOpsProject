@@ -1,0 +1,122 @@
+/* =--------------------------------------= Details Product Partition Styles =------------------= */
+.details
+	.details__wrapper
+		grid-template-columns: 5.5fr 6.5fr
+		margin: auto
+		/* =--------= max-width: 992px =----= */
+		@media screen and (max-width: 992px)
+			grid-template-columns: 1fr
+		/* =--------= max-width: 768px =----= */
+		@media screen and (max-width: 768px)
+			grid-template-columns: 100%
+		.details__group
+			.details__image
+				margin-bottom: 0.5rem
+			.details__thmbnails
+				grid-template-columns: repeat(4, 1fr)
+				column-gap: 0.625rem
+				.details__thmbnail
+					cursor: pointer
+			.details__title
+				font-size: $h2FontSize
+			.details__brand
+				font-size: $smallFontSize
+				margin-block: 1rem
+				/* =--------= max-width: 1200px =----= */
+				@media screen and (max-width: 1200px)
+					margin-block: 0.75rem
+				span
+					color: $firstColor
+			.details__price
+				border-top: 1px solid $borderColorAlt
+				border-bottom: 1px solid $borderColorAlt
+				padding-block: 1rem
+				column-gap: 1rem
+				/* =--------= max-width: 1200px =----= */
+				@media screen and (max-width: 1200px)
+					padding-block: 0.75rem
+				.new__price
+					font-size: $h2FontSize
+					color: $firstColor
+				.old__price
+					font-size: $normalFontSize
+					font-weight: 500
+			.short__description
+				margin-block: 1rem 2rem
+				/* =--------= max-width: 1200px =----= */
+				@media screen and (max-width: 1200px)
+					margin-bottom: 1.5rem
+			.product__list
+				.list__item
+					font-size: $smallFontSize
+					margin-bottom: 0.75rem
+			.details__color
+				column-gap: 0.75rem
+				margin-block: 2rem 1.5rem
+				/* =--------= max-width: 1200px =----= */
+				@media screen and (max-width: 1200px)
+					margin-block: 1.75rem 1.25rem
+				.details__color__title
+					font-size: $smallFontSize
+					font-weight: 600
+				.color__list
+					display: flex
+					column-gap: 0.25rem
+					.color__link
+						border-radius: 50%
+						width: 26px
+						height: 26px
+						display: block
+						/* =--------= max-width: 1200px =----= */
+						@media screen and (max-width: 1200px)
+							width: 22px
+							height: 22px
+			.details__size
+				column-gap: 0.75rem
+				margin-bottom: 2rem
+				/* =--------= max-width: 1200px =----= */
+				@media screen and (max-width: 1200px)
+					margin-bottom: 2.25rem
+				&__title
+					font-size: $smallFontSize
+					font-weight: 600
+				.size__list
+					display: flex
+					column-gap: 0.25rem
+					.size__link
+						border: 1px solid $borderColorAlt
+						padding: 0.375rem 0.75rem 0.5rem
+						color: $textColor
+						font-size: $smallFontSize
+						/* =--------= max-width: 1200px =----= */
+						@media screen and (max-width: 1200px)
+							padding: 0.375rem 0.625rem
+						&__active
+							background: $firstColor
+							color: $bodyColor
+			.details__action
+				display: flex
+				column-gap: 0.375rem
+				margin-bottom: 3.25rem
+				/* =--------= max-width: 1200px =----= */
+				@media screen and (max-width: 1200px)
+					margin-bottom: 2.75rem
+				.quantity
+					border: 1px solid $borderColorAlt
+					font-size: $smallFontSize
+					max-width: 80px
+					padding-block: 0.5rem
+					padding-inline: 1rem 0.5rem
+					border-radius: 0.25rem
+				.details__action__btn
+					border: 1px solid $borderColorAlt
+					font-size: $smallFontSize
+					line-height: 40px
+					padding-inline: 0.75rem
+					color: $textColor
+			.details__meta
+				border: 1px solid $borderColorAlt
+				padding-top: 1rem
+				.meta__list
+					font-size: $smallFontSize
+					margin-bottom: 0.75rem
